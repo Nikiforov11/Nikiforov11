@@ -1,6 +1,4 @@
 - 👋 Hi, I’m @Nikiforov11
-- 👀 I’m interested in front end developing
-- 🌱 I’m currently learning programing languages 
 - 📫 How to reach me on Telegram(@Nikifor9v)
 
 <!---
