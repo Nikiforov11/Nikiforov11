@@ -1,0 +1,8 @@
+#Python virtual environment
+venv/
+
+# Ignore specific project folder
+ML/
+Codes from Codewar/
+server RTP RTSP/
+stuff/
