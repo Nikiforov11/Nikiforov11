@@ -1,0 +1,5 @@
+pydantic-ai
+httpx
+trafilatura
+beautifulsoup4
+python-dotenv

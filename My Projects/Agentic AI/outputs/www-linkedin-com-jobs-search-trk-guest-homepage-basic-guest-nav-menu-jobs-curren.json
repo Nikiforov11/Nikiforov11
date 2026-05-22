@@ -1,0 +1,28 @@
+{
+  "posting": {
+    "job_title": "Social Media Content Creator (UGC/Pizza industry)",
+    "company": "FuseGlobal",
+    "location": null,
+    "remote": "unknown",
+    "employment_type": "unknown",
+    "experience_level": null,
+    "required_skills": [],
+    "salary_range": null,
+    "description_summary": null,
+    "posted_date": null
+  },
+  "confidence_score": 0.2,
+  "missing_fields": [
+    "location",
+    "remote",
+    "employment_type",
+    "experience_level",
+    "required_skills",
+    "salary_range",
+    "description_summary",
+    "posted_date"
+  ],
+  "quality_notes": [
+    "Many key fields are missing or unknown, resulting in low confidence."
+  ]
+}

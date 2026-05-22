@@ -1,10 +1,10 @@
-# Machine Learning Portfolio
+# Machine Learning & AI Portfolio
 
-This repository holds a couple of small machine learning
-projects I built on my own to get hands-on exposure to a complete ML workflow —
-from raw data to a cleaned dataset, to a trained model, to measured results.
-Each project is intentionally end-to-end: there is a data-cleaning stage and a
-modelling stage, so the whole pipeline is visible and reproducible.
+This repository holds the small hands-on projects I built on my own: two
+end-to-end machine learning projects — from raw data to a cleaned dataset, to a
+trained model, to measured results — and an agentic-AI project that uses a large
+language model as a strict, structured-data extractor. Each project is
+intentionally end-to-end so the whole pipeline is visible and reproducible.
 
 ## Tech stack
 
@@ -12,23 +12,32 @@ modelling stage, so the whole pipeline is visible and reproducible.
 - **pandas** / **NumPy** — data loading, cleaning and feature engineering
 - **scikit-learn** — models, cross-validation and metrics
 - **seaborn** / **matplotlib** — exploratory data analysis and plots
+- **Pydantic AI** / **Google Gemini** — the agentic-AI project: constraining an
+  LLM to return strictly typed, validated data
 
 ## Repository structure
 
 ```
 My Projects/
 ├── requirements.txt
-└── Machine Learning/
-    ├── Classification/                 # Project 1 — Titanic classification
-    │   ├── titanic.csv                # raw dataset
-    │   ├── data_cleaning.py           # EDA + cleaning  -> clean_data.csv
-    │   ├── clean_data.csv             # cleaned, encoded dataset
-    │   └── titanic_predictions.py     # trains & compares 3 models
-    └── Regression/              # Project 2 — Housing price regression
-        ├── housing.csv                # raw dataset
-        ├── data_cleaning.py           # ETL + feature engineering -> clean_housing.csv
-        ├── clean_housing.csv          # cleaned, engineered dataset
-        └── housing_predictions.py     # trains & evaluates the model
+├── Machine Learning/
+│   ├── Classification/                 # Project 1 — Titanic classification
+│   │   ├── titanic.csv                # raw dataset
+│   │   ├── data_cleaning.py           # EDA + cleaning  -> clean_data.csv
+│   │   ├── clean_data.csv             # cleaned, encoded dataset
+│   │   └── titanic_predictions.py     # trains & compares 3 models
+│   └── Regression/              # Project 2 — Housing price regression
+│       ├── housing.csv                # raw dataset
+│       ├── data_cleaning.py           # ETL + feature engineering -> clean_housing.csv
+│       ├── clean_housing.csv          # cleaned, engineered dataset
+│       └── housing_predictions.py     # trains & evaluates the model
+└── Agentic AI/          # Project 3 — Strict Web Scraper
+    ├── models.py                  # Pydantic models — the strict data contract
+    ├── scraper.py                 # fetch URL + clean HTML to text (no LLM)
+    ├── agents.py                  # the 2 Pydantic AI agents
+    ├── main.py                    # CLI orchestrator
+    ├── requirements.txt           # this project's own dependencies
+    └── README.md                  # full project documentation
 ```
 
 ## Project 1 — Titanic Survival Classification
@@ -81,6 +90,32 @@ it explains roughly 60% of the variance in median house value. That is a
 reasonable result for a plain linear model and gives a solid baseline to improve
 on later with non-linear models.
 
+## Project 3 — Strict Web Scraper & Entity Extractor (Agentic AI)
+
+**Why I built it.** Most LLM-based scrapers are unreliable because the model
+replies with free-form prose. I wanted to learn how to *constrain* an LLM so it
+returns reliable, programmatic data — the kind of thing that is actually usable
+in automation, not just a chatbot answer.
+
+**What I did.** I built a command-line tool that takes a job-posting URL and
+returns strictly structured, validated JSON. It uses **Pydantic AI**: the
+expected data shape is a Pydantic model passed as the agent's `output_type`, so
+every reply is validated against that schema and retried if it does not fit.
+The application is genuinely *agentic* — it runs **two LLM agents** in a
+pipeline: an Extraction Agent pulls the raw fields out of the page, and a
+Validation Agent then normalizes the skills, sanity-checks the salary, flags
+missing fields and assigns a confidence score. A plain-Python step in front
+fetches the page and strips it to clean text so the agents never see raw HTML.
+
+**Result.** Given a public job posting (Greenhouse, Lever, LinkedIn job-view
+pages, most company career pages), the tool reliably returns a typed object with
+the job title, company, location, employment type, required skills, salary range
+and a summary. When a field is genuinely absent it stays `null` rather than being
+hallucinated — that honesty is the whole point of the strict approach.
+
+Full setup and usage are in the project's own
+[README](My%20Projects/Agentic%20AI/README.md).
+
 ## How to run
 
 ```bash
@@ -106,6 +141,20 @@ python titanic_predictions.py    # trains and compares the models
 The Housing project runs the same way from its own
 `My Projects/Machine Learning/Regression` folder.
 
+The Agentic AI project has its **own** `requirements.txt` and needs a free
+Google Gemini API key:
+
+```bash
+cd "My Projects/Agentic AI/strict_web_scraper"
+pip install -r requirements.txt
+copy .env.example .env        # then edit .env and add your GEMINI_API_KEY
+python main.py "<job-posting-url>"
+```
+
+See its [README](My%20Projects/Agentic%20AI/README.md) for
+the full details.
+
 ## Contact
 
 - Telegram: [@Nikifor9v](https://t.me/Nikifor9v)
+- LinkedIn: [Nichifor Ioan Tudor](https://www.linkedin.com/in/nikifor-ioan-tudor)

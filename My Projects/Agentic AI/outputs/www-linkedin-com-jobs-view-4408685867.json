@@ -1,0 +1,28 @@
+{
+  "posting": {
+    "job_title": "Graduate AI Engineer",
+    "company": "HP",
+    "location": "Sant Cugat, Spain",
+    "remote": "hybrid",
+    "employment_type": "full-time",
+    "experience_level": "Entry level",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "Machine Learning",
+      "AI Concepts"
+    ],
+    "salary_range": null,
+    "description_summary": "This role involves designing, developing, and deploying AI-driven features for a conversational insights platform within HP Industrial Print. The platform, built on the PrintOS ecosystem, aims to provide customers with natural interaction with print workflow and device data. The engineer will collaborate with cross-functional teams and contribute to the AI innovation showroom.",
+    "posted_date": null
+  },
+  "confidence_score": 0.9,
+  "missing_fields": [
+    "salary_range",
+    "posted_date"
+  ],
+  "quality_notes": [
+    "Required skills normalized for casing.",
+    "Salary range and posted date were not provided in the original posting."
+  ]
+}

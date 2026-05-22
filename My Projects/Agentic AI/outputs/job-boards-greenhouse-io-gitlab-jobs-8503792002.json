@@ -1,0 +1,29 @@
+{
+  "posting": {
+    "job_title": "Account Executive",
+    "company": "GitLab",
+    "location": "Italy",
+    "remote": "remote",
+    "employment_type": "full-time",
+    "experience_level": null,
+    "required_skills": [
+      "Git",
+      "Software development tools",
+      "Application lifecycle management",
+      "Italian"
+    ],
+    "salary_range": null,
+    "description_summary": "As an Account Executive, you will be the primary connection between GitLab and customers, guiding organizations of up to 4,000 team members in adopting and expanding their AI-powered DevSecOps platform. You will manage a broad book of business, running the full sales process from discovery to close, and contribute to improving sales processes and representing customer feedback.",
+    "posted_date": null
+  },
+  "confidence_score": 0.75,
+  "missing_fields": [
+    "experience_level",
+    "salary_range",
+    "posted_date"
+  ],
+  "quality_notes": [
+    "Required skills normalized for casing and duplicates.",
+    "Missing experience level, salary range, and posted date."
+  ]
+}
