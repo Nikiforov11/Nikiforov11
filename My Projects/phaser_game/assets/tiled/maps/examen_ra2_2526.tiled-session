@@ -1,0 +1,246 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "level12.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "#ts-colored-transparent": {
+            "scaleInEditor": 1
+        },
+        "level0.tmx": {
+            "scale": 2.0326041666666668,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 205.40152718700355,
+                "y": 160.13939424998716
+            }
+        },
+        "level0.tmx#ts-colored-transparent": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "level0.tmx#ts-monochrome-transparent": {
+            "scaleInDock": 2
+        },
+        "level1.tmx": {
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 288.5,
+                "y": 159.75
+            }
+        },
+        "level1.tmx#tileset_entities": {
+            "scaleInDock": 1
+        },
+        "level1.tmx#tileset_moss": {
+            "scaleInDock": 1
+        },
+        "level1.tmx#tileset_walls": {
+            "scaleInDock": 1
+        },
+        "level1.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "level10.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 4,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 193,
+                "y": 176.125
+            }
+        },
+        "level10.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 4
+        },
+        "level11.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 5.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 544,
+                "y": 104.09090909090908
+            }
+        },
+        "level11.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 5.5
+        },
+        "level12.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 242.5,
+                "y": 213.25
+            }
+        },
+        "level12.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 4
+        },
+        "level2.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 1.4794270833333334,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 119.64090829079385,
+                "y": 96.3210702341137
+            }
+        },
+        "level2.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 2
+        },
+        "level3.tmx": {
+            "scale": 3,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 151.66666666666669,
+                "y": 111.83333333333331
+            }
+        },
+        "level3.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 3
+        },
+        "level4 - copia.tmx": {
+            "scale": 1.5602430555555555,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 288.0961388672527,
+                "y": 159.91098253032158
+            }
+        },
+        "level4 - copia.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 1
+        },
+        "level4.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 3,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 168.33333333333331,
+                "y": 47.833333333333314
+            }
+        },
+        "level4.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 5.5
+        },
+        "level5.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 1.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 287.99999999999994,
+                "y": 159.66666666666663
+            }
+        },
+        "level5.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 3
+        },
+        "level6.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 1.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 151.99999999999997,
+                "y": 288.33333333333337
+            }
+        },
+        "level6.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 1.5
+        },
+        "level7.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 1.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 215.99999999999997,
+                "y": 95.66666666666663
+            }
+        },
+        "level7.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 2
+        },
+        "level8.tmx": {
+            "expandedObjectLayers": [
+                9
+            ],
+            "scale": 4,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 392,
+                "y": 128.125
+            }
+        },
+        "level8.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 3
+        },
+        "level9.tmx": {
+            "scale": 1,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 120,
+                "y": 271.5
+            }
+        },
+        "level9.tmx#ts-monochrome_tilemap_transparent": {
+            "scaleInDock": 3
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Richard/Desktop/ex_map_ra2_2526/assets/tiled/maps",
+    "last.imagePath": "C:/Users/Richard Hebert/OneDrive - U.College of New Technologies SL/Escritorio/ex_map_av_2526/assets/tiled/tilesets",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.renderOrder": "3",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "level11.tmx",
+        "level12.tmx",
+        "level10.tmx"
+    ],
+    "project": "examen_ra2_2526.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "level11.tmx",
+        "level10.tmx",
+        "level12.tmx",
+        "level9.tmx",
+        "level8.tmx",
+        "level7.tmx",
+        "level6.tmx",
+        "level5.tmx",
+        "level4.tmx",
+        "level3.tmx",
+        "level2.tmx",
+        "level1.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.margin": 0,
+    "tileset.spacing": 1,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.useTransparentColor": true
+}

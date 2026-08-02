@@ -2,9 +2,10 @@
 
 This repository holds the small hands-on projects I built on my own: two
 end-to-end machine learning projects — from raw data to a cleaned dataset, to a
-trained model, to measured results — and an agentic-AI project that uses a large
-language model as a strict, structured-data extractor. Each project is
-intentionally end-to-end so the whole pipeline is visible and reproducible.
+trained model, to measured results — an agentic-AI project that uses a large
+language model as a strict, structured-data extractor, and a small browser game
+built with the Phaser engine. Each project is intentionally end-to-end so the
+whole pipeline is visible and reproducible.
 
 ## Tech stack
 
@@ -26,18 +27,24 @@ My Projects/
 │   │   ├── data_cleaning.py           # EDA + cleaning  -> clean_data.csv
 │   │   ├── clean_data.csv             # cleaned, encoded dataset
 │   │   └── titanic_predictions.py     # trains & compares 3 models
-│   └── Regression/              # Project 2 — Housing price regression
+│   └── Regression/                    # Project 2 — Housing price regression
 │       ├── housing.csv                # raw dataset
 │       ├── data_cleaning.py           # ETL + feature engineering -> clean_housing.csv
 │       ├── clean_housing.csv          # cleaned, engineered dataset
 │       └── housing_predictions.py     # trains & evaluates the model
-└── Agentic AI/          # Project 3 — Strict Web Scraper
-    ├── models.py                  # Pydantic models — the strict data contract
-    ├── scraper.py                 # fetch URL + clean HTML to text (no LLM)
-    ├── agents.py                  # the 2 Pydantic AI agents
-    ├── main.py                    # CLI orchestrator
-    ├── requirements.txt           # this project's own dependencies
-    └── README.md                  # full project documentation
+├── Agentic AI/                        # Project 3 — Strict Web Scraper
+│   ├── models.py                      # Pydantic models — the strict data contract
+│   ├── scraper.py                     # fetch URL + clean HTML to text (no LLM)
+│   ├── agents.py                      # the 2 Pydantic AI agents
+│   ├── main.py                        # CLI orchestrator
+│   ├── requirements.txt               # this project's own dependencies
+│   └── README.md                      # full project documentation
+└── phaser_game/                       # Project 4 — Phaser mini game
+    ├── index.html                     # browser entry point
+    ├── readme.md                      # project documentation
+    ├── assets/                        # sprites, sounds, fonts and maps
+    ├── libs/                          # Phaser engine library
+    └── src/                           # scenes, entities and game logic
 ```
 
 ## Project 1 — Titanic Survival Classification
@@ -115,6 +122,21 @@ hallucinated — that honesty is the whole point of the strict approach.
 
 Full setup and usage are in the project's own
 [README](My%20Projects/Agentic%20AI/README.md).
+
+## Project 4 — Little Things: Phaser Edition
+
+**Why I built it.** After the data-heavy projects, I wanted something more
+visual and interactive — a small browser game to practise scene management,
+physics, level flow, and game object composition.
+
+**What I did.** I built a compact pixel-art platformer in Phaser with a main
+menu, multiple level scenes, tilemap-based level loading, custom entities for
+buttons, blocks, doors, stairs, spikes, keys and NPC interactions, and a HUD that
+runs alongside the gameplay scene.
+
+**Result.** The project works as a playable mini-game prototype with a clear
+scene structure, reusable assets, and a simple progression loop. It is a good
+example of how a small Phaser game can be organised cleanly and expanded later.
 
 ## How to run
 
