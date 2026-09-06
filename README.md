@@ -15,6 +15,8 @@ whole pipeline is visible and reproducible.
 - **seaborn** / **matplotlib** — exploratory data analysis and plots
 - **Pydantic AI** / **Google Gemini** — the agentic-AI project: constraining an
   LLM to return strictly typed, validated data
+- **Streamlit** / **Inngest** / **Qdrant** / **LlamaIndex** — the RAG project:
+  ingesting PDFs, retrieving relevant passages and generating grounded answers
 
 ## Repository structure
 
@@ -39,12 +41,19 @@ My Projects/
 │   ├── main.py                        # CLI orchestrator
 │   ├── requirements.txt               # this project's own dependencies
 │   └── README.md                      # full project documentation
-└── phaser_game/                       # Project 4 — Phaser mini game
+├── phaser_game/                       # Project 4 — Phaser mini game
     ├── index.html                     # browser entry point
     ├── readme.md                      # project documentation
     ├── assets/                        # sprites, sounds, fonts and maps
     ├── libs/                          # Phaser engine library
     └── src/                           # scenes, entities and game logic
+  └── RAG_project/                       # Project 5 — PDF question answering with RAG
+    ├── data_loader.py                  # PDF extraction, chunking and embeddings
+    ├── vector_db.py                    # Qdrant storage and similarity search
+    ├── main.py                         # FastAPI and Inngest workflows
+    ├── streamlip_app.py                # Streamlit upload and question interface
+    ├── requirements.txt                # project dependencies
+    └── readme.md                       # full project documentation
 ```
 
 ## Project 1 — Titanic Survival Classification
@@ -138,6 +147,26 @@ runs alongside the gameplay scene.
 scene structure, reusable assets, and a simple progression loop. It is a good
 example of how a small Phaser game can be organised cleanly and expanded later.
 
+## Project 5 — PDF Question Answering with RAG
+
+**Why I built it.** I wanted to build a complete Retrieval-Augmented Generation
+pipeline that can answer questions from a user's own documents instead of
+relying only on a model's general knowledge.
+
+**What I did.** The application accepts PDF uploads through Streamlit, extracts
+and splits their text with LlamaIndex, embeds the chunks with Gemini, and stores
+them in a local Qdrant collection. Inngest coordinates the ingestion and query
+workflows. When a user asks a question, the application retrieves the most
+relevant chunks and sends only that context to Gemini to generate the answer.
+The UI also displays the source filenames used for the response.
+
+**Result.** The project is a working local document-question-answering,
+with separate ingestion and query workflows, deterministic chunk IDs,
+vector similarity search, and a simple Streamlit interface.
+
+Full setup and usage are in the project's own
+[README](My%20Projects/RAG_project/readme.md).
+
 ## How to run
 
 ```bash
@@ -175,6 +204,10 @@ python main.py "<job-posting-url>"
 
 See its [README](My%20Projects/Agentic%20AI/README.md) for
 the full details.
+
+The RAG project has its own dependencies and also requires a local Qdrant
+instance, a local Inngest development server, and a Gemini API key. See its
+[README](My%20Projects/RAG_project/readme.md) for the startup commands.
 
 ## Contact
 

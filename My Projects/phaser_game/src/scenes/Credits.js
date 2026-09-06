@@ -54,9 +54,7 @@ export class Credits extends Phaser.Scene
             'UItext',
             'Special Thanks to the original developers of\n' +
             '"Little Things", JAGSTUDIO:\n\n'+
-            '   - Gisela Benito Izquierdo\n'+
-            '   - Jan Planes Mazcunan\n' +
-            '   - Adrian Diego Fernandez Olivares\n\n' +
+            '   - Nichifor Ioan Tudor\n'+
             'for creating such a wonderful game!\n\n' +
             'This Phaser Edition has been developed as an \n' +
             'academic exercise by Richard Hebert. 2026.',

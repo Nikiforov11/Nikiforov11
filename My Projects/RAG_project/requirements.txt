@@ -1,0 +1,10 @@
+fastapi
+inngest
+openai
+llama-index-core
+llama-index-readers-file
+python-dotenv
+qdrant-client
+uvicorn
+streamlit
+uv
