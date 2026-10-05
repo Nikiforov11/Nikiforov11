@@ -1,0 +1,9 @@
+[project]
+name = "ai-analyst"
+version = "0.1.0"
+description = "AI analyst that answers questions about sales CSVs"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

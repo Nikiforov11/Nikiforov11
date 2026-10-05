@@ -1,0 +1,57 @@
+# Full stack:  docker compose up --build
+#   app      http://localhost:8501   Streamlit UI
+#   inngest  http://localhost:8288   Inngest Dev Server dashboard (runs, steps, retries)
+#   worker   runs the agent; only Inngest talks to it
+#
+# Needs a .env file with GEMINI_API_KEY (copy .env.example).
+
+x-common: &common
+  build: .
+  env_file:
+    - path: .env
+      required: false
+  volumes:
+    - analyst-data:/data          # SQLite + uploaded datasets, shared by app and worker
+  restart: unless-stopped
+
+services:
+  inngest:
+    image: inngest/inngest:latest   # pin a version (e.g. inngest/inngest:v1.45.1) for reproducibility
+    command: inngest dev -u http://worker:8000/api/inngest --no-discovery
+    ports:
+      - "8288:8288"
+    restart: unless-stopped
+
+  worker:
+    <<: *common
+    command: uvicorn worker.main:app --host 0.0.0.0 --port 8000
+    environment:
+      DATA_DIR: /data
+      INNGEST_DEV: "1"
+      INNGEST_BASE_URL: http://inngest:8288
+      INNGEST_SERVE_ORIGIN: http://worker:8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    depends_on:
+      - inngest
+
+  app:
+    <<: *common
+    command: streamlit run app/streamlit_app.py --server.address=0.0.0.0 --server.port=8501
+    environment:
+      DATA_DIR: /data
+      ANALYST_MODE: inngest
+      INNGEST_DEV: "1"
+      INNGEST_BASE_URL: http://inngest:8288
+      INNGEST_DASHBOARD_URL: http://localhost:8288   # link opened by your browser, not the container
+    ports:
+      - "8501:8501"
+    depends_on:
+      worker:
+        condition: service_healthy
+
+volumes:
+  analyst-data:

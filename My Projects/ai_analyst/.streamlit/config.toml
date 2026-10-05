@@ -1,0 +1,19 @@
+# Ledger-inspired theme: ink-green text on a pale paper-green background,
+# IBM Plex for a numeric, accounting feel. Charts reuse the same palette
+# (tools/charts.py PALETTE).
+[theme]
+base = "light"
+primaryColor = "#1F7A55"
+backgroundColor = "#FBFCFA"
+secondaryBackgroundColor = "#EEF3EF"
+textColor = "#1D2B24"
+font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap, sans-serif"
+headingFont = "IBM Plex Serif:https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&display=swap, serif"
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap, monospace"
+chartCategoricalColors = ["#1F7A55", "#3C6E9F", "#C98B2B", "#7A4E7E", "#5FA88A", "#8FA9C8", "#B5654A", "#8A958F"]
+
+[server]
+maxUploadSize = 200
+
+[browser]
+gatherUsageStats = false

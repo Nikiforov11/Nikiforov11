@@ -1,11 +1,10 @@
 # Machine Learning & AI Portfolio
 
-This repository holds the small hands-on projects I built on my own: two
-end-to-end machine learning projects — from raw data to a cleaned dataset, to a
-trained model, to measured results — an agentic-AI project that uses a large
-language model as a strict, structured-data extractor, and a small browser game
-built with the Phaser engine. Each project is intentionally end-to-end so the
-whole pipeline is visible and reproducible.
+This repository holds the hands-on projects I built on my own: two end-to-end
+machine learning projects, an agentic-AI data-extraction project, a browser
+game, a PDF question-answering system, and an AI-powered sales data analyst.
+Each project is intentionally end-to-end so the whole pipeline is visible and
+reproducible.
 
 ## Tech stack
 
@@ -17,6 +16,9 @@ whole pipeline is visible and reproducible.
   LLM to return strictly typed, validated data
 - **Streamlit** / **Inngest** / **Qdrant** / **LlamaIndex** — the RAG project:
   ingesting PDFs, retrieving relevant passages and generating grounded answers
+- **Streamlit** / **Inngest** / **pandas** / **Google Gemini** — AI Analyst:
+  answering questions about uploaded sales data with calculated results and
+  charts
 
 ## Repository structure
 
@@ -41,19 +43,27 @@ My Projects/
 │   ├── main.py                        # CLI orchestrator
 │   ├── requirements.txt               # this project's own dependencies
 │   └── README.md                      # full project documentation
-├── phaser_game/                       # Project 4 — Phaser mini game
-    ├── index.html                     # browser entry point
-    ├── readme.md                      # project documentation
-    ├── assets/                        # sprites, sounds, fonts and maps
-    ├── libs/                          # Phaser engine library
-    └── src/                           # scenes, entities and game logic
-  └── RAG_project/                       # Project 5 — PDF question answering with RAG
-    ├── data_loader.py                  # PDF extraction, chunking and embeddings
-    ├── vector_db.py                    # Qdrant storage and similarity search
-    ├── main.py                         # FastAPI and Inngest workflows
-    ├── streamlip_app.py                # Streamlit upload and question interface
-    ├── requirements.txt                # project dependencies
-    └── readme.md                       # full project documentation
+├── phaser_game/                        # Project 4 — Phaser mini game
+│   ├── index.html                      # browser entry point
+│   ├── readme.md                       # project documentation
+│   ├── assets/                         # sprites, sounds, fonts and maps
+│   ├── libs/                           # Phaser engine library
+│   └── src/                            # scenes, entities and game logic
+├── RAG_project/                        # Project 5 — PDF question answering with RAG
+│   ├── data_loader.py                  # PDF extraction, chunking and embeddings
+│   ├── vector_db.py                    # Qdrant storage and similarity search
+│   ├── main.py                         # FastAPI and Inngest workflows
+│   ├── streamlip_app.py                # Streamlit upload and question interface
+│   ├── requirements.txt                # project dependencies
+│   └── readme.md                       # full project documentation
+└── ai_analyst/                         # Project 6 — AI sales data analyst
+    ├── app/                            # Streamlit app and direct/Inngest runners
+    ├── core/                           # Gemini client, agent loop, prompts, schemas
+    ├── data_layer/                     # CSV ingestion, profiling, SQLite/Parquet store
+    ├── tools/                          # pandas analysis and chart tools
+    ├── worker/                         # FastAPI and Inngest functions
+    ├── docker-compose.yml              # app, worker, and Inngest development stack
+    └── README.md                       # setup, Docker, and usage documentation
 ```
 
 ## Project 1 — Titanic Survival Classification
@@ -161,11 +171,32 @@ relevant chunks and sends only that context to Gemini to generate the answer.
 The UI also displays the source filenames used for the response.
 
 **Result.** The project is a working local document-question-answering,
-with separate ingestion and query workflows, deterministic chunk IDs,
+ with separate ingestion and query workflows, deterministic chunk IDs,
 vector similarity search, and a simple Streamlit interface.
 
 Full setup and usage are in the project's own
 [README](My%20Projects/RAG_project/readme.md).
+
+## Project 6 — AI Analyst
+
+**Why I built it.** I wanted to make data analysis accessible through natural
+language while keeping answers tied to calculations performed on the actual
+dataset.
+
+**What I did.** I built a Streamlit application where users upload a sales CSV
+and ask questions in plain language. A Google Gemini-powered agent selects
+from validated analysis tools; pandas computes aggregations, time series,
+period comparisons, statistics, and chart data. The application profiles
+columns before analysis and shows the calculation details behind each answer.
+Questions can run directly in the app or as durable Inngest workflows with a
+FastAPI worker. The full stack can be started with Docker Compose.
+
+**Result.** The project provides a local, end-to-end sales analysis workflow
+with conversational follow-ups, Plotly charts, CLI access, evaluation cases,
+and tests that run without a Gemini API key.
+
+Full setup, including Docker instructions, is in the project's
+[README](My%20Projects/ai_analyst/README.md).
 
 ## How to run
 
@@ -208,6 +239,21 @@ the full details.
 The RAG project has its own dependencies and also requires a local Qdrant
 instance, a local Inngest development server, and a Gemini API key. See its
 [README](My%20Projects/RAG_project/readme.md) for the startup commands.
+
+AI Analyst has its own dependencies and requires a Gemini API key for real
+answers. From its project folder, start the complete application stack with
+Docker Compose:
+
+```powershell
+cd "My Projects\ai_analyst"
+docker compose up --build
+```
+
+The Streamlit app is available at `http://localhost:8501` and the Inngest
+dashboard at `http://localhost:8288`. Create a `.env` file in the project
+folder containing `GEMINI_API_KEY=your_gemini_api_key` before asking questions.
+See the [AI Analyst README](My%20Projects/ai_analyst/README.md) for local
+non-Docker setup and additional commands.
 
 ## Contact
 
